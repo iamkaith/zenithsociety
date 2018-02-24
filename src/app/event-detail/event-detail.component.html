@@ -1,0 +1,46 @@
+<div class="container" >
+  <div class="row">
+      <div *ngIf="event">
+          <h2>Full Event Details</h2>
+
+          <div><span>Event ID: </span>{{ event.eventId }}</div>
+          
+          
+          <div class="form-group">
+            <label>Event Start:</label>
+            <input [(ngModel)]="event.eventFrom" type="text" class="form-control">      
+          </div>
+
+          <div class="form-group">
+              <label>Event End:</label>
+              <input [(ngModel)]="event.eventTo" type="text" class="form-control">      
+          </div>
+
+          <div class="form-group">
+              <div><span>Activity ID: </span>{{ event.activityType.activityId }}</div>
+              <label>Activity:</label>
+              <input [(ngModel)]="event.activityType.activityDescription" type="text" class="form-control">      
+          </div>
+
+          
+
+          <div class="form-group">
+              <label>Event Status:</label>
+              <input [(ngModel)]="event.isActive" type="text" class="form-control">      
+          </div>
+          
+          <div class="form-group">
+              <div><span>Activity Created On: </span>{{ event.activityType.createdOn }}</div> 
+            </div>
+
+          <div class="form-group">
+              <div><span>Event Created On: </span>{{ event.createdOn }}</div> 
+            </div>
+
+        </div>
+      
+        
+  </div>
+  <button (click)="goBack()" type="button" class="btn btn-lg btn-primary">Back</button>
+  <button (click)="save()" type="button" class="btn btn-secondary btn-lg" disabled>Save</button>
+</div>

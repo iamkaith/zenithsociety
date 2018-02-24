@@ -1,0 +1,84 @@
+<div class="container">
+
+  <h1>Full Event List</h1>
+  <p>Click on the table rows below to edit an entry.</p>
+  
+  <hr>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Event ID</th>
+            <th>Event Date</th>
+            <th>Description</th>
+            <TH>IsActive</TH>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events" routerLink="/details/{{event.eventId}}">
+            <td>{{ event.eventId }}</td>
+            <td>START: {{ event.eventFrom }} END:{{ event.eventTo }}</td>
+            <td>{{ event.activityType.activityDescription }}</td>
+            <td>{{ event.isActive }} </td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
+
+<hr>
+
+<div class="container">
+  <h1>Add an Event</h1>
+  <p>Use the form below to create a new event.</p>
+  
+  <div class="row">
+    <div class="col-8">
+        <form method="POST" action="/api/">
+          <div class="form-group">
+            <label>Event ID:</label>
+            <input type="text" name="eventId" id="eventId" class="form-control">
+          </div>
+        
+          <div class="form-group">
+            <label>Event Start (Date and Time):</label>
+            <input type="text" name="eventStart" id="startDate"><input type="text" id="startTime" name="startTime"> 
+          </div>
+    
+          <div class="form-group">
+            <label>Event End (Date and Time):</label>
+            <input type="text" name="eventEnd" id="endDate" ><input type="text" id="endTime" name="endTime" >
+          </div>
+    
+          <div class="form-group">
+            <label>Activity ID:</label>
+            <input type="text" name="activityId" id="activityId" class="form-control">
+          </div>
+    
+          <div class="form-group">
+              <label>Activity Name:</label>
+              <input type="text" name="activityDescription" id="activityDescription" class="form-control">
+            </div>
+    
+          <div class="form-group">
+            <label>Event Status:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="isactive" id="isactive" value="true" checked>
+                <label class="form-check-label" for="isactive">
+                  Active
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="isactive" id="isactive" value="false">
+                <label class="form-check-label" for="isactive">
+                  Inactive
+                </label>
+              </div>
+          </div>
+          <button type="submit" type="button" class="btn btn-primary btn-lg">Add Event</button>
+        </form>
+      </div>
+    </div>
+  <br>
+</div>
+
+
