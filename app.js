@@ -9,14 +9,14 @@ var api = require('./routes/events');
 var app = express();
 
 // mongodb connection 
-var mongoUrl = 'mongodb://kaith:admin123@ds247178.mlab.com:47178/zenith';
+var mongoUrl = '...';
 mongoose.connect(mongoUrl, function (err) {
   if (err) {
     console.error("Error connecting to MongoDB");
     process.exit(1);
   }
 
-  console.log("MONGO: GOOD. Connection to mLabs is good! ")
+  console.log("MONGO: Connection good.")
 
 });
 
